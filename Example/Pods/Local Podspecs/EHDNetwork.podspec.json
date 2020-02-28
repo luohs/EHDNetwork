@@ -1,0 +1,86 @@
+{
+  "name": "EHDNetwork",
+  "version": "1.0.8",
+  "summary": "A short description of EHDNetwork.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/luohs/EHDNetwork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "luohs": "luohuasheng0225@gmail.com"
+  },
+  "source": {
+    "git": "http://gitlab.tf56.lo/tfic-frontend-client/ios-components-repo/common/ehdnetwork.git",
+    "tag": "1.0.8"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "EHDNetwork/Classes/*.h",
+        "EHDNetwork/Classes/Network/protocol/**/*.{m,mm,h}",
+        "EHDNetwork/Classes/Network/proxy/**/*.{m,mm,h}",
+        "EHDNetwork/Classes/Network/request/**/*.{m,mm,h}",
+        "EHDNetwork/Classes/Network/response/**/*.{m,mm,h}"
+      ],
+      "resource_bundles": {
+        "EHDNetwork": [
+          "EHDNetwork/Assets/**/*.{en,cer,p12}"
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "AFNetworking/NSURLSession": [
+
+          ],
+          "AFNetworking/Security": [
+
+          ],
+          "AFNetworking/Serialization": [
+
+          ],
+          "MJExtension": [
+
+          ]
+        }
+      }
+    },
+    {
+      "name": "HttpDNS",
+      "prefix_header_contents": "#define NET_HTTPDNS_ENABLE 1",
+      "ios": {
+        "dependencies": {
+          "EHDNetwork/Core": [
+
+          ]
+        }
+      },
+      "dependencies": {
+        "EHDHttpDNS": [
+
+        ]
+      }
+    },
+    {
+      "name": "crypt",
+      "prefix_header_contents": "#define NET_CRYPT_ENABLE 1",
+      "ios": {
+        "dependencies": {
+          "EHDNetwork/Core": [
+
+          ]
+        }
+      },
+      "dependencies": {
+        "EHDCryptCipherService": [
+
+        ]
+      }
+    }
+  ]
+}

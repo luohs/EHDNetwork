@@ -1,0 +1,22 @@
+#use_frameworks!
+platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/aliyun/aliyun-specs.git'
+#plugin 'cocoapods-repo-svn', :sources =>['https://10.7.12.91/repo/ehuodiDriveriPhone/EHDSpecRepo']
+source 'https://github.com/aliyun/aliyun-specs.git'
+plugin 'cocoapods-repo-svn', :sources =>['https://10.7.12.91/repo/EHDiOS/trunk/EHDSpecRepo']
+
+target 'EHDNetwork_Example' do
+#  pod 'MJExtension', '3.0.13'
+  pod 'EHDNetwork/Core', :path => '../'
+#  pod 'EHDNetwork/HttpDNS', :path => '../'
+#  pod 'EHDNetwork/TFSupport', :path => '../'
+#  pod 'AFNetworking', '3.0.1'
+#  pod 'EHDHttpDNS', '0.1.0'
+#  pod 'ARAnalytics/Mixpanel'
+  target 'EHDNetwork_Tests' do
+    inherit! :search_paths
+
+
+  end
+end
